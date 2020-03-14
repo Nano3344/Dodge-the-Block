@@ -23,5 +23,8 @@ public class Movement : MonoBehaviour {
 		if (Input.GetKey("a")) {
 			Rb.AddForce (-SideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 		}
+		if (Rb.position.y < -1f) {
+			FindObjectOfType<GameManager> ().EndGame ();
+		}
 	}
 }
